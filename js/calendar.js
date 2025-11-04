@@ -72,7 +72,7 @@
       },
       events: function(fetchInfo, successCallback, failureCallback) {
         $.ajax({
-          url: '/pages/calendar.php',
+          url: '/api/calendar/list',
           dataType: 'json',
           data: {
             start: fetchInfo.startStr,
