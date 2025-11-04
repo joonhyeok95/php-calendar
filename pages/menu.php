@@ -2,6 +2,7 @@
 <?php
 // 페이지 호출 처리
 switch($context1){
+    case "sample":
     case "calendar":
         $filepath = "./pages/".$context1."/".$context2;
         if (substr($filepath, -4) !== ".php") {
