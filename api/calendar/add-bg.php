@@ -19,7 +19,7 @@ if (isset($_FILES['image_file']) && $_FILES['image_file']['error'] === UPLOAD_ER
   $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
   $allowedExts = ['jpg', 'jpeg', 'png', 'gif'];
   if (!in_array($fileExt, $allowedExts)) {
-    echo json_encode(['status' => 'error', 'message' => '허용되지 않는 파일 형식입니다.']);
+    echo json_encode(['status' => 'error', 'message' => '허용되지 않는 파일 형식입니다.'], JSON_UNESCAPED_UNICODE);
     exit;
   }
   // 고유 파일명 생성
@@ -30,14 +30,14 @@ if (isset($_FILES['image_file']) && $_FILES['image_file']['error'] === UPLOAD_ER
     // 웹에서 접근 가능한 경로로 변경 필요
     $image_url = "http://localhost/uploads/". $newFileName;
   } else {
-    echo json_encode(['status' => 'error', 'message' => '파일 업로드 중 오류 발생']);
+    echo json_encode(['status' => 'error', 'message' => '파일 업로드 중 오류 발생'], JSON_UNESCAPED_UNICODE);
     exit;
   }
 }
 
 // 값체크
 if (!$year || !$month || !$image_url) {
-    echo json_encode(['status' => 'error', 'message' => '필수 항목이 누락되었습니다']);
+    echo json_encode(['status' => 'error', 'message' => '필수 항목이 누락되었습니다'], JSON_UNESCAPED_UNICODE);
     exit;
 }
 
@@ -71,8 +71,8 @@ if ($result->num_rows > 0) {
 $stmt_check->close();
 
 if ($success) {
-    echo json_encode(['status' => 'success']);
+    echo json_encode(['status' => 'success'], JSON_UNESCAPED_UNICODE);
 } else {
-    echo json_encode(['status' => 'error', 'message' => $mysqli->error]);
+    echo json_encode(['status' => 'error', 'message' => $mysqli->error], JSON_UNESCAPED_UNICODE);
 }
 ?>

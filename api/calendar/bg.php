@@ -8,6 +8,6 @@ $stmt->execute();
 $res = $stmt->get_result();
 $row = $res->fetch_assoc();
 
-echo json_encode($row ?: new stdClass());
+echo json_encode($row ?: new stdClass(), JSON_UNESCAPED_UNICODE);
 $stmt->close();
 ?>

@@ -3,7 +3,7 @@ $start = $_GET['start'] ?? null; // YYYY-MM-DD
 $end = $_GET['end'] ?? null;
 
 if (!$start || !$end) {
-    echo json_encode(['error' => '기간 파라미터 누락']);
+    echo json_encode(['error' => '기간 파라미터 누락'], JSON_UNESCAPED_UNICODE);
     exit;
 }
 
@@ -79,5 +79,5 @@ function queryEventsForRange($mysqli, $start, $end) {
 
     return $events;
 }
-echo json_encode($events);
+echo json_encode($events, JSON_UNESCAPED_UNICODE);
 ?>

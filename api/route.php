@@ -8,7 +8,7 @@ switch($context1){
         if (file_exists($_SERVER['DOCUMENT_ROOT'].$filepath)) {
             include($_SERVER['DOCUMENT_ROOT'].$filepath);
         } else {
-            echo json_encode(['error' => '페이지가 존재하지 않습니다.']);
+            echo json_encode(['error' => '페이지가 존재하지 않습니다.'], JSON_UNESCAPED_UNICODE);
         }
     break;
 
