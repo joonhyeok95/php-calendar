@@ -28,7 +28,9 @@ if (isset($_FILES['image_file']) && $_FILES['image_file']['error'] === UPLOAD_ER
 
   if (move_uploaded_file($fileTmpPath, $destPath)) {
     // 웹에서 접근 가능한 경로로 변경 필요
-    $image_url = "http://localhost/uploads/". $newFileName;
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+    $domain = $_SERVER['HTTP_HOST'];
+    $image_url = $protocol . $domain . "/uploads/". $newFileName;
   } else {
     echo json_encode(['status' => 'error', 'message' => '파일 업로드 중 오류 발생'], JSON_UNESCAPED_UNICODE);
     exit;
