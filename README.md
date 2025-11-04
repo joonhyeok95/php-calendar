@@ -18,3 +18,8 @@ http://localhost/
 http://localhost/calendar/add
 http://localhost/calendar/add-bg
 ```
+
+## 교육용
+```
+http://localhost/sample/test
+http://localhost/sample/jquery
