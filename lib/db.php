@@ -1,6 +1,9 @@
 <?php
 
 $host = "localhost";
+// $user = "yehan";
+// $pass = "my1216!@!^";
+// $dbname = "yehan";
 $user = "root";
 $pass = "";
 $dbname = "yehan";
